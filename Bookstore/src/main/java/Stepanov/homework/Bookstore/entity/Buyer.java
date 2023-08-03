@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "buyer")
@@ -31,4 +32,7 @@ public class Buyer {
 
     @Column
     private LocalDate birth_date;
+
+    @OneToMany(mappedBy = "buyer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Ordering> orderingList;
 }

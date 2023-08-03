@@ -21,7 +21,7 @@ insert into buyer values (1, '1987-12-13', 'Petrovich', 'Alex','Kozlov');
 insert into book values (1, 123, 20, 'Spring', 1977, 1);
 insert into book values (2, 200, 30, 'Spring2', 1979, 1);
 
-insert into "ordering" values (1, 1)
+insert into "ordering"(buyer_id) values (1)
 
 insert into ordering_details values (1, 2, 1, 20, 1)
 insert into ordering_details (quantity, book_id, price, ordering_id) values (3, 2, 30, 1)
@@ -38,7 +38,7 @@ select sum(o.quantity * o.price) from ordering_details o where o.ordering_id = 1
 
 delete from ordering_details where ordering_id = 1
 
-
+update book set price = 10 where "id" = 2  
 
 
 
@@ -50,9 +50,9 @@ delete from ordering_details where ordering_id = 1
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/ordering_details" />
-      <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/book" />
       <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/ordering" />
+      <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/book" />
+      <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/ordering_details" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
@@ -61,7 +61,7 @@ delete from ordering_details where ordering_id = 1
     <filter-actions connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" dataset="public.buyer" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" dataset="public.book" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" dataset="public.author" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" dataset="public.book_warehouse" active-filter-id="" />
+    <filter-actions connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" dataset="public.book_warehouse" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -89,23 +89,23 @@ delete from ordering_details where ordering_id = 1
     <connections>
       <connection id="6c005fa9-d9a3-4955-b432-7782b827c4a1" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="books_DB_connection" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
-          <database-version value="13.2" />
+          <database-version value="14.8" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="containers-us-west-71.railway.app" />
-          <port value="7101" />
-          <database value="railway" />
+          <host value="localhost" />
+          <port value="5432" />
+          <database value="Task23_books_story" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="postgres" />
-          <deprecated-pwd value="UURvSkhlcnhINHY3emJ1WFptb2o=" />
+          <deprecated-pwd value="cG9zdGdyZXM=" />
         </database>
         <properties>
           <auto-commit value="false" />

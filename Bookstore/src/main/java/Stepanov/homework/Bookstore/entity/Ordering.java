@@ -25,18 +25,18 @@ public class Ordering {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(nullable = false)
     private Buyer buyer;
 
     @OneToMany(mappedBy = "ordering", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<OrderingDetails> orderingDetailsList;
 
-
-    @Transient
+    @Column
     private Integer purchase_amount;
 
+    @PrePersist
+    @PreUpdate
     @PostLoad
     private void postLoad() {
         this.purchase_amount = orderingDetailsList.stream()

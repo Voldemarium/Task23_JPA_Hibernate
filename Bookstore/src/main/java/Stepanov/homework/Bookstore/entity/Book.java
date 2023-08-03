@@ -4,9 +4,12 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -35,5 +38,9 @@ public class Book implements Serializable {
 
     @Column(nullable = false)
     private Integer price;
+
+    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @Transient
+    private List<OrderingDetails> orderingDetails;
 
 }
