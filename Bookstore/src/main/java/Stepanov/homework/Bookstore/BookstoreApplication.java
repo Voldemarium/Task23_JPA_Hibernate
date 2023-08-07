@@ -15,6 +15,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.List;
+
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -76,6 +78,9 @@ public class BookstoreApplication {
 
         book2.setPrice(20);
         bookDAO.updateBook(book2);
+
+        List<Book> books = bookDAO.getBooks();
+        log.info("books {}", books);
 
 //
 //        Ordering ordering = orderingDao.findOrdering(1L);

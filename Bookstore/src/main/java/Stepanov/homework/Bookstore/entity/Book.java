@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "book")
 @Getter
 @Setter
-@ToString
+//@ToString
 @RequiredArgsConstructor
 public class Book implements Serializable {
 
@@ -43,4 +43,15 @@ public class Book implements Serializable {
 //    @Transient
     private List<OrderingDetails> orderingDetails;
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author=" + author +
+                ", year_of_publication=" + year_of_publication +
+                ", pages=" + pages +
+                ", price=" + price +
+                '}';
+    }
 }

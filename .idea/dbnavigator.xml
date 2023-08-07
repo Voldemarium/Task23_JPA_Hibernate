@@ -51,8 +51,6 @@ update book set price = 10 where "id" = 2
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
       <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/ordering" />
-      <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/book" />
-      <object connection-id="6c005fa9-d9a3-4955-b432-7782b827c4a1" object-ref="schemas/public/tables/ordering_details" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">

@@ -20,6 +20,13 @@ public class BookDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    //    Получение списка всех книг
+    public List<Book> getBooks() {
+        Session session = sessionFactory.openSession();
+        List<Book> books = session.createQuery("from Book", Book.class).list();
+        session.close();
+        return books;
+    }
 
     public Book findBook(Long id) {
         try (Session session = sessionFactory.openSession()) {

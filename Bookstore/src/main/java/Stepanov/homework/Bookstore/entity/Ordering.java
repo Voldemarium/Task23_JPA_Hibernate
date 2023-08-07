@@ -4,13 +4,13 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Formula;
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.*;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +30,7 @@ public class Ordering {
     private Buyer buyer;
 
     @OneToMany(mappedBy = "ordering", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<OrderingDetails> orderingDetailsList;
 
     @Column
